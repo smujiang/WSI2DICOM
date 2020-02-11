@@ -21,7 +21,7 @@ Code is super easy to use. Test data can be downloaded from [here](http://opensl
 wsi_fn = '/path/to/your/WSI/example/CMU-1-JP2K-33005.svs'
 wsi_dicom_dir = "/path/to/your/output/example/CMU-1-JP2K-33005"
 
-# # convert withou compression
+# # convert without compression
 # p = parameters(JPEG_COMPRESS=False, image_levels=range(0, 3))
 # wsi_c = WSIDICOM_Converter(wsi_fn, wsi_dicom_dir, p)
 # wsi_c.convert()
