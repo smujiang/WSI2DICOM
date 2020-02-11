@@ -1,7 +1,7 @@
 This repo shows how to convert whole slide image into multi-frame DICOM images. It depends on [Openslides](https://openslide.org/) and [Pydicom](https://pydicom.github.io/)
 ![figure](./figure1.png)
 ### Motivation
-* Standardize WSI formatting and transferring through out institutions. 
+* Standardize WSI formatting and transferring throughout institutions. 
 * Enable more encapsulation options for massive data storage
 * Potentially simplify patch/frame level accessibility
 
