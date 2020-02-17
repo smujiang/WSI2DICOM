@@ -85,29 +85,31 @@ def create_default_tags(filename, IS_IMPLICIT_VR, IS_LITTLE_ENDIAN):
     CORE
     '''
     # GraphicAnnotation = 6 #TODO: costumize your annotation, need validation
-    seq = ds.GraphicAnnotationSequence = [Dataset(), Dataset()]
-    img_seq1 = seq[0].ReferencedImageSequence = [Dataset()]
+    ds.GraphicAnnotationSequence = [Dataset(), Dataset()]
+    ds.GraphicAnnotationSequence[0].ReferencedImageSequence = [Dataset()]
     # Graphics on the first referenced image
-    obj_seq1 = img_seq1[0].TextObjectSequence = [Dataset()]
-    obj_seq1[0].BoundingBoxAnnotationUnits = 'PIXEL'
-    obj_seq1[0].BoundingBoxTopLeftHandCorner = [50, 50]
-    obj_seq1[0].BoundingBoxBottomRightHandCorner = [100, 100]
+    ds.GraphicAnnotationSequence[0].ReferencedImageSequence[0].TextObjectSequence = [Dataset()]
+    obj_seq1 = ds.GraphicAnnotationSequence[0].ReferencedImageSequence[0].TextObjectSequence
+    obj_seq1[0].BoundingBoxTopLeftHandCorner = [50, 50]  # top left coordinates of bounding box
+    obj_seq1[0].BoundingBoxBottomRightHandCorner = [100, 100]  # bottom right coordinates of bounding box
+    obj_seq1[0].BoundingBoxAnnotationUnits = 'PIXEL'  # unit of coordinates
     obj_seq1[0].BoundingBoxHorizontalJustification = 'LEFT'
-    obj_seq1[0].UnformattedTextValue = 'Tumor'
+    obj_seq1[0].UnformattedTextValue = 'Tumor'  # Annotation Label text
     obj_seq1[0].GraphicGroupID = 1  # Annotation Label ID: 1
 
-    img_seq2 = seq[1].ReferencedImageSequence = [Dataset()]
-    obj_seq2 = img_seq2[0].GraphicObjectSequence = [Dataset(), Dataset()]
-    obj_seq2[0].NumberofGraphicPoints = 4
-    obj_seq2[0].GraphicType = "POINT"  # POINT POLYLINE INTERPOLATED CIRCLE ELLIPSE
-    obj_seq2[0].GraphicData = [120, 60, 135, 75, 80, 125, 89, 139]
-    obj_seq2[0].GraphicAnnotationUnits = 'PIXEL'
+    ds.GraphicAnnotationSequence[1].ReferencedImageSequence = [Dataset()]
+    ds.GraphicAnnotationSequence[1].ReferencedImageSequence[0].GraphicObjectSequence = [Dataset(), Dataset()]
+    obj_seq2 = ds.GraphicAnnotationSequence[1].ReferencedImageSequence[0].GraphicObjectSequence
+    obj_seq2[0].GraphicType = "POINT"  # could be POINT POLYLINE INTERPOLATED CIRCLE ELLIPSE
+    obj_seq2[0].NumberofGraphicPoints = 4  # how many points where saved in this domain, validate data is complete
+    obj_seq2[0].GraphicData = [120, 60, 135, 75, 80, 125, 89, 139]   # x,y coordinates of points [x0, y0, x1, y1 ....]
+    obj_seq2[0].GraphicAnnotationUnits = 'PIXEL'  # unit of coordinates
     obj_seq2[0].GraphicGroupID = 2  # Annotation Label ID: 2
 
-    obj_seq2[1].NumberofGraphicPoints = 4
-    obj_seq2[1].GraphicType = "POLYLINE"  # POINT POLYLINE INTERPOLATED CIRCLE ELLIPSE
+    obj_seq2[1].GraphicType = "POLYLINE"  # add polyline
+    obj_seq2[1].NumberofGraphicPoints = 4 # how many points where saved in this domain
     obj_seq2[1].GraphicData = [150, 80, 160, 80, 180, 120, 130, 120]
-    obj_seq2[1].GraphicAnnotationUnits = 'PIXEL'
+    obj_seq2[1].GraphicAnnotationUnits = 'PIXEL'  # unit of coordinates
     obj_seq2[1].GraphicGroupID = 3  # Annotation Label ID: 2
 
 
