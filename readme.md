@@ -8,7 +8,7 @@ This repo shows how to convert whole slide image into multi-frame DICOM images. 
 ### Motivation
 * Standardize WSI formatting and transferring throughout institutions. 
 * Enable more encapsulation options for massive data storage
-* Potentially simplify patch/frame level accessibility
+* Potentially simplify patch/frame level accessibility of whole slide images
 
 Here is an example showing the converted DICOM can be viewed in a DICOM viewer [Orthanc](https://www.orthanc-server.com). 
 ![example](./example.gif)
